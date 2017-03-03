@@ -1,0 +1,17 @@
+#!/bin/bash
+
+SRC_DIR="/usr/share/nvim/runtime/indent"
+DST_DIR="./indent"
+
+if [[ $# -ne 1 ]]; then
+  echo "usage: grab <language>"
+fi
+
+SRC_FILE="$SRC_DIR/$1.vim"
+
+if [[ -r "$SRC_FILE" ]]; then
+  echo "$1"
+  cp -i "$SRC_FILE" "$DST_DIR"
+else
+  echo "file not readable: $SRC_FILE"
+fi
